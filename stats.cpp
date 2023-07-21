@@ -1,5 +1,6 @@
 #include "stats.h"
 #include <numeric>
+#include <limits>
 #include <algorithm>
 #include <iostream>
 #include <cmath>
