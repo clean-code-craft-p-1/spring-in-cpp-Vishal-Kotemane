@@ -1,3 +1,12 @@
+//****************************************************************************//
+//                                                                            //
+//   Filename   : stats.h                                                     //
+//                                                                            //
+//   Description: Contains Stats Funcitons                                    //
+//                                                                            //
+//   Copyright  : Philips Medical Systems Nederland B.V., 2023.               //
+//                                                                            //
+//****************************************************************************//
 #include <vector>
 
 namespace Statistics {

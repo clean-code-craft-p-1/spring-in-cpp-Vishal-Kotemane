@@ -1,3 +1,12 @@
+//****************************************************************************//
+//                                                                            //
+//   Filename   : test.cpp                                                    //
+//                                                                            //
+//   Description: GTest of stats.cpp                                          //
+//                                                                            //
+//   Copyright  : Philips Medical Systems Nederland B.V., 2023.               //
+//                                                                            //
+//****************************************************************************//
 #include "stats.h"
 
 #include "gtest/gtest.h"

@@ -1,16 +1,25 @@
+//****************************************************************************//
+//                                                                            //
+//   Filename   : stats.cpp                                                   //
+//                                                                            //
+//   Description: Contains Stats Funcitons                                    //
+//                                                                            //
+//   Copyright  : Philips Medical Systems Nederland B.V., 2023.               //
+//                                                                            //
+//****************************************************************************//
 #include "stats.h"
 #include <numeric>
 #include <limits>
 #include <algorithm>
 #include <iostream>
-#include <cmath>
+
 using namespace Statistics;
-#define NAN (std::numeric_limits<double>::quiet_NaN())
+#define CUSTOM_NAN (std::numeric_limits<double>::quiet_NaN())
 Stats Statistics::ComputeStatistics(const std::vector<double>& inpVec) {
     //Implement statistics here
 	Stats temp = { 0 };
 	
-	if ( false == inpVec.empty())
+	if (!inpVec.empty())
 	{
 		temp.average = std::accumulate(inpVec.begin(), inpVec.end(), 0.0) / inpVec.size();
 		auto itr = std::max_element(inpVec.begin(), inpVec.end());
@@ -21,9 +30,9 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& inpVec) {
 	}
 	else
 	{
-		temp.average = NAN;
-		temp.max = NAN;
-		temp.min = NAN;
+		temp.average = CUSTOM_NAN;
+		temp.max = CUSTOM_NAN;
+		temp.min = CUSTOM_NAN;
 	}
 	return temp;
 
