@@ -4,6 +4,7 @@
 #include <iostream>
 
 using namespace Statistics;
+#define NAN (std::numeric_limits<double>::quiet_NaN())
 Stats Statistics::ComputeStatistics(const std::vector<double>& inpVec) {
     //Implement statistics here
 	Stats temp = { 0 };
