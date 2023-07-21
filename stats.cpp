@@ -2,7 +2,7 @@
 #include <numeric>
 #include <algorithm>
 #include <iostream>
-
+#include <cmath>
 using namespace Statistics;
 #define NAN (std::numeric_limits<double>::quiet_NaN())
 Stats Statistics::ComputeStatistics(const std::vector<double>& inpVec) {
