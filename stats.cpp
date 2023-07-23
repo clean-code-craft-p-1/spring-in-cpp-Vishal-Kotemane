@@ -118,21 +118,23 @@ void StatsAlerter::setAlert(IAlerter* alerter)
 {
 	switch (alerter->alert_type)
 	{
-	case ALERTYPE::EMAIL:
-	{
-		EmailAlert* emailalert = static_cast<EmailAlert*>(alerter);
-		emailalert->emailSent = true;
-		break;
-	}
-	case ALERTYPE::LED:
-	{
-		LEDAlert* ledAlert = static_cast<LEDAlert*>(alerter);
-		ledAlert->ledGlows = true;
-		break;
-	}
-	case ALERTYPE::MAX_ALERT:
-		std::cout << "Programming error!" << std::endl;
-		break;
+		case ALERTYPE::EMAIL:
+		{
+			EmailAlert* emailalert = static_cast<EmailAlert*>(alerter);
+			emailalert->emailSent = true;
+			break;
+		}
+		case ALERTYPE::LED:
+		{
+			LEDAlert* ledAlert = static_cast<LEDAlert*>(alerter);
+			ledAlert->ledGlows = true;
+			break;
+		}
+		case ALERTYPE::MAX_ALERT:
+		{
+			std::cout << "Programming error!" << std::endl;
+			break;
+		}
 	}
 }
 

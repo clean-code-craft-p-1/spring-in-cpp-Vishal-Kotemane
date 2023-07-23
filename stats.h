@@ -24,6 +24,7 @@ namespace Statistics {
     Stats ComputeStatistics(const std::vector<double>& inpvec );
 }
 
+//Definition of IAlerter
 enum class ALERTYPE { EMAIL = 0 , LED = 1, MAX_ALERT = 2 };
 
 class IAlerter
@@ -38,6 +39,7 @@ private:
 	const float threshold = 10.2f;
 };
 
+//Definition of EmailAlert
 class EmailAlert :public IAlerter
 {
 public:
@@ -48,6 +50,7 @@ private:
 	
 };
 
+//Definition of LEDAlert
 class LEDAlert :public IAlerter
 {
 public:
@@ -58,6 +61,7 @@ private:
 	
 };
 
+//Definition of StatsAlerter
 class StatsAlerter
 {
 public:
