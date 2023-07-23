@@ -7,6 +7,9 @@
 //   Copyright  : Philips Medical Systems Nederland B.V., 2023.               //
 //                                                                            //
 //****************************************************************************//
+#ifndef STATS_H
+#define STATS_H
+
 #include <vector>
 
 namespace Statistics {
@@ -20,3 +23,51 @@ namespace Statistics {
 	
     Stats ComputeStatistics(const std::vector<double>& inpvec );
 }
+
+enum class ALERTYPE { EMAIL = 0 , LED = 1, MAX_ALERT = 2 };
+
+class IAlerter
+{
+public:
+	IAlerter();
+	~IAlerter();
+	bool check(const float val) const;
+	const float getThreshold() const;
+	ALERTYPE alert_type;
+private:
+	const float threshold = 10.2f;
+};
+
+class EmailAlert :public IAlerter
+{
+public:
+	EmailAlert();
+	~EmailAlert();
+	bool emailSent;
+private:
+	
+};
+
+class LEDAlert :public IAlerter
+{
+public:
+	LEDAlert();
+	~LEDAlert();
+	bool ledGlows;
+private:
+	
+};
+
+class StatsAlerter
+{
+public:
+	StatsAlerter();
+	StatsAlerter(const float maxthreshold, std::vector<IAlerter*> InplistOfAlerters);
+	~StatsAlerter();
+	void checkAndAlert(std::vector<float> Inplist);
+	void setAlert(IAlerter* alerter);
+private:
+	std::vector<IAlerter*> listOfAlerters;
+};
+
+#endif // !STATS_H
