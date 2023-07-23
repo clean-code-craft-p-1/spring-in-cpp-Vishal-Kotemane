@@ -30,15 +30,15 @@ TEST(Statistics, AverageNaNForEmpty) {
     EXPECT_TRUE(std::isnan(computedStats.average));
 }
 
-//TEST(Alert, AlertsWhenMaxExceeds) {
-//    EmailAlert emailAlert;
-//    LEDAlert ledAlert;
-//    std::vector<IAlerter*> alerters = { &emailAlert, &ledAlert };
-//
-//    const float maxThreshold = 10.2;
-//    StatsAlerter statsAlerter(maxThreshold, alerters);
-//    statsAlerter.checkAndAlert({ 99.8, 34.2, 4.5, 6.7 });
-//
-//    EXPECT_TRUE(emailAlert.emailSent);
-//    EXPECT_TRUE(ledAlert.ledGlows);
-//}
+TEST(Alert, AlertsWhenMaxExceeds) {
+    EmailAlert emailAlert;
+    LEDAlert ledAlert;
+    std::vector<IAlerter*> alerters = { &emailAlert, &ledAlert };
+
+    const float maxThreshold = 10.2;
+    StatsAlerter statsAlerter(maxThreshold, alerters);
+    statsAlerter.checkAndAlert({ 99.8, 34.2, 4.5, 6.7 });
+
+    EXPECT_TRUE(emailAlert.emailSent);
+    EXPECT_TRUE(ledAlert.ledGlows);
+}
